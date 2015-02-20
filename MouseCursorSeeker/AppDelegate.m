@@ -12,6 +12,7 @@
 {
     NSMutableArray *maskWindows;
     NSMutableArray *maskViews;
+    BOOL isMasked;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -20,7 +21,11 @@
 
     [NSEvent addGlobalMonitorForEventsMatchingMask:NSFlagsChangedMask|NSKeyDownMask handler:^(NSEvent *event){
         if( [event modifierFlags] == 1179922 ){         // [command] + [Shift] keys pressed
-            [self setMask];
+            if( isMasked == YES ){
+                [self hideMask];
+            }else{
+                [self setMask];
+            }
         }
         if(( [event type] == NSKeyDown ) && ([event keyCode] == 53 ) ){  // [ESC] key pressed
             [self hideMask];
@@ -29,6 +34,7 @@
 }
 
 - (void)setMask{
+    isMasked = YES;
     maskWindows = [NSMutableArray array];
     maskViews = [NSMutableArray array];
     
@@ -74,6 +80,7 @@
     }
     maskWindows = nil;
     maskViews = nil;
+    isMasked = NO;
 }
 
 - (BOOL)mousePointIsInScreen:(NSScreen *)screen{
