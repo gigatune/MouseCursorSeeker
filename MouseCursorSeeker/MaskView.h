@@ -10,4 +10,6 @@
 
 @interface MaskView : NSView
 
+- (void)setHolePoint:(NSPoint)point;
+
 @end

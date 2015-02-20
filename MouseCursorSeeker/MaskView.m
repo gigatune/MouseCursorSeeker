@@ -10,10 +10,24 @@
 
 @implementation MaskView
 
+NSPoint holePoint;
+int holeWidth = 50;
+int holeHeight = 50;
+
 - (void)drawRect:(NSRect)dirtyRect
 {
-    [[NSColor colorWithRed:0.5 green:0 blue:1 alpha:0.5] set];
-    NSRectFillUsingOperation(dirtyRect, NSCompositeSourceOver);
+    NSRect holeRect = NSMakeRect((holePoint.x - holeWidth), (holePoint.y - holeHeight), holeWidth, holeHeight);
+    NSBezierPath* holePath = [NSBezierPath bezierPathWithRoundedRect:holeRect
+                                                             xRadius:holeWidth
+                                                             yRadius:holeHeight];
+    [holePath appendBezierPathWithRect:dirtyRect];
+    [holePath setWindingRule:NSEvenOddWindingRule];
+    [[NSColor colorWithRed:0.5 green:0 blue:1.0 alpha:0.7] set];
+    [holePath fill];
+}
+
+- (void)setHolePoint:(NSPoint)point{
+    holePoint = point;
 }
 
 @end
