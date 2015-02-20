@@ -10,8 +10,6 @@ this Utility highlight the MouseCursor. for MacOS X
  - XCode 5.0.2
  - ディスプレイ4枚(MacBookPro Retina + 外付け3枚)
 
-![masked](https://raw.githubusercontent.com/gigatune/MouseCursorSeeker/images/screenshots/masked.png)
-
 ----
 make the mask on the screen, and it help you to search mouse cursor.
 
