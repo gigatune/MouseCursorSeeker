@@ -46,7 +46,7 @@
         
         if( [self mousePointIsInScreen:screen]){
             [maskView setShowHole:YES];
-            [maskView setHolePoint:NSMakePoint(100, 100)];
+            [maskView setHolePoint:[self mousePointInScreen:screen]];
         }else{
             [maskView setShowHole:NO];
         }
@@ -65,6 +65,16 @@
         return YES;
     }
     return NO;
+}
+
+- (NSPoint)mousePointInScreen:(NSScreen *)screen{
+
+    NSPoint mousePoint = [NSEvent mouseLocation];
+
+    float x = mousePoint.x - screen.frame.origin.x;
+    float y = mousePoint.y - screen.frame.origin.y;
+
+    return NSMakePoint(x, y);
 }
 
 @end
