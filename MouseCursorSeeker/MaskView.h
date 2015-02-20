@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  MaskView.h
 //  MouseCursorSeeker
 //
 //  Created by tommy on 2015/02/20.
@@ -7,10 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "MaskView.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
-
-@property (assign) IBOutlet NSWindow *window;
+@interface MaskView : NSView
 
 @end

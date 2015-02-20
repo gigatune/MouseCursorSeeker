@@ -18,6 +18,7 @@
 		656C2E891A97124700618FAB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656C2E681A97124600618FAB /* Cocoa.framework */; };
 		656C2E911A97124700618FAB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 656C2E8F1A97124700618FAB /* InfoPlist.strings */; };
 		656C2E931A97124700618FAB /* MouseCursorSeekerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 656C2E921A97124700618FAB /* MouseCursorSeekerTests.m */; };
+		656C2E9E1A9716AD00618FAB /* MaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 656C2E9D1A9716AD00618FAB /* MaskView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		656C2E8E1A97124700618FAB /* MouseCursorSeekerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MouseCursorSeekerTests-Info.plist"; sourceTree = "<group>"; };
 		656C2E901A97124700618FAB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		656C2E921A97124700618FAB /* MouseCursorSeekerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MouseCursorSeekerTests.m; sourceTree = "<group>"; };
+		656C2E9C1A9716AD00618FAB /* MaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskView.h; sourceTree = "<group>"; };
+		656C2E9D1A9716AD00618FAB /* MaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaskView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 			children = (
 				656C2E7A1A97124600618FAB /* AppDelegate.h */,
 				656C2E7B1A97124700618FAB /* AppDelegate.m */,
+				656C2E9C1A9716AD00618FAB /* MaskView.h */,
+				656C2E9D1A9716AD00618FAB /* MaskView.m */,
 				656C2E7D1A97124700618FAB /* MainMenu.xib */,
 				656C2E801A97124700618FAB /* Images.xcassets */,
 				656C2E6F1A97124600618FAB /* Supporting Files */,
@@ -253,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				656C2E7C1A97124700618FAB /* AppDelegate.m in Sources */,
+				656C2E9E1A9716AD00618FAB /* MaskView.m in Sources */,
 				656C2E751A97124600618FAB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
