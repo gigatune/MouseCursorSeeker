@@ -10,7 +10,7 @@
 
 @implementation AppDelegate
 {
-    NSMutableArray *maskScreens;
+    NSMutableArray *maskWindows;
     NSMutableArray *maskViews;
 }
 
@@ -21,27 +21,27 @@
 }
 
 - (void)setMask{
-    maskScreens = [NSMutableArray array];
+    maskWindows = [NSMutableArray array];
     maskViews = [NSMutableArray array];
     
     for(NSScreen* screen in [NSScreen screens])
     {
         NSRect cocoaScreenFrame = [screen frame];
         
-        NSWindow *maskScreen = [[NSWindow alloc] initWithContentRect:NSZeroRect
+        NSWindow *maskWindow = [[NSWindow alloc] initWithContentRect:NSZeroRect
                                                            styleMask:NSBorderlessWindowMask
                                                              backing:NSBackingStoreBuffered
                                                                defer:YES];
-        [maskScreen setOpaque:NO];
-        [maskScreen makeKeyAndOrderFront:nil];
-        [maskScreen setBackgroundColor:[NSColor clearColor]];
-        [maskScreen setLevel:NSFloatingWindowLevel];
-        [maskScreen setFrame:cocoaScreenFrame display:YES];
-        [maskScreens addObject:maskScreen];
+        [maskWindow setOpaque:NO];
+        [maskWindow makeKeyAndOrderFront:nil];
+        [maskWindow setBackgroundColor:[NSColor clearColor]];
+        [maskWindow setLevel:NSFloatingWindowLevel];
+        [maskWindow setFrame:cocoaScreenFrame display:YES];
+        [maskWindows addObject:maskWindow];
         
         
         MaskView *maskView = [[MaskView alloc] initWithFrame:cocoaScreenFrame];
-        [maskScreen setContentView:maskView];
+        [maskWindow setContentView:maskView];
         [maskViews addObject:maskView];
         
         if( [self mousePointIsInScreen:screen]){
@@ -51,9 +51,9 @@
             [maskView setShowHole:NO];
         }
 
-        [maskScreen setAlphaValue:0];
+        [maskWindow setAlphaValue:0];
         [[NSAnimationContext currentContext] setDuration:0.5];
-        [[maskScreen animator] setAlphaValue:1.0];
+        [[maskWindow animator] setAlphaValue:1.0];
         
     }
 }
