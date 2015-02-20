@@ -8,8 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+
 @interface MaskView : NSView
 
-- (void)setHolePoint:(NSPoint)point;
+@property(nonatomic) BOOL showHole;
+@property(nonatomic) NSPoint holePoint;
 
+- (void)setHolePoint:(NSPoint)point;
+- (void)setShowHole:(BOOL)flag;
 @end

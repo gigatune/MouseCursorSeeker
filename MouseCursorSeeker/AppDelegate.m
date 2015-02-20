@@ -44,10 +44,27 @@
         [maskScreen setContentView:maskView];
         [maskViews addObject:maskView];
         
+        if( [self mousePointIsInScreen:screen]){
+            [maskView setShowHole:YES];
+            [maskView setHolePoint:NSMakePoint(100, 100)];
+        }else{
+            [maskView setShowHole:NO];
+        }
+
         [maskScreen setAlphaValue:0];
         [[NSAnimationContext currentContext] setDuration:0.5];
         [[maskScreen animator] setAlphaValue:1.0];
         
     }
 }
+
+- (BOOL)mousePointIsInScreen:(NSScreen *)screen{
+
+    NSPoint mousePoint = [NSEvent mouseLocation];
+    if( NSMouseInRect(mousePoint, screen.frame, NO)){
+        return YES;
+    }
+    return NO;
+}
+
 @end
