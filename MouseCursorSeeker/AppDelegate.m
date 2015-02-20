@@ -8,11 +8,16 @@
 
 #import "AppDelegate.h"
 
+@interface AppDelegate()
+@property (weak) IBOutlet NSMenu *statusMenu;
+@end
+
 @implementation AppDelegate
 {
     NSMutableArray *maskWindows;
     NSMutableArray *maskViews;
     BOOL isMasked;
+    NSStatusItem *_statusItem;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -31,6 +36,7 @@
             [self hideMask];
         }
     }];
+    [self setupStatusItem];
 }
 
 - (void)setMask{
@@ -102,4 +108,14 @@
     return NSMakePoint(x, y);
 }
 
+- (void)setupStatusItem
+{
+    NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
+
+    _statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
+    [_statusItem setHighlightMode:YES];
+    [_statusItem setTitle:@"MouseCursorSeeker"];
+    [_statusItem setMenu:self.statusMenu];
+
+}
 @end
