@@ -58,6 +58,16 @@
     }
 }
 
+- (void)hideMask{
+    for (NSWindow *maskWindow in maskWindows) {
+        [maskWindow setAlphaValue:1.0];
+        [[NSAnimationContext currentContext] setDuration:0.5];
+        [[maskWindow animator] setAlphaValue:0.0];
+    }
+    maskWindows = nil;
+    maskViews = nil;
+}
+
 - (BOOL)mousePointIsInScreen:(NSScreen *)screen{
 
     NSPoint mousePoint = [NSEvent mouseLocation];
