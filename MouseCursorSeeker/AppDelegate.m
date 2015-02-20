@@ -17,7 +17,15 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    [self setMask];
+
+    [NSEvent addGlobalMonitorForEventsMatchingMask:NSFlagsChangedMask|NSKeyDownMask handler:^(NSEvent *event){
+        if( [event modifierFlags] == 1179922 ){         // [command] + [Shift] keys pressed
+            [self setMask];
+        }
+        if(( [event type] == NSKeyDown ) && ([event keyCode] == 53 ) ){  // [ESC] key pressed
+            [self hideMask];
+        }
+    }];
 }
 
 - (void)setMask{
