@@ -14,8 +14,8 @@
 
 @implementation AppDelegate
 {
-    NSMutableArray *maskWindows;
-    NSMutableArray *maskViews;
+    NSWindow *maskWindow;
+    MaskView *maskView;
     BOOL isMasked;
     NSStatusItem *_statusItem;
 }
@@ -41,9 +41,10 @@
 
 - (void)setMask{
     isMasked = YES;
-    maskWindows = [NSMutableArray array];
-    maskViews = [NSMutableArray array];
     
+    maskWindow = nil;
+    maskView = nil;
+
     for(NSScreen* screen in [NSScreen screens])
     {
         
@@ -51,7 +52,7 @@
 
             NSRect cocoaScreenFrame = [screen frame];
 
-            NSWindow *maskWindow = [[NSWindow alloc] initWithContentRect:NSZeroRect
+            maskWindow = [[NSWindow alloc] initWithContentRect:NSZeroRect
                                                                styleMask:NSBorderlessWindowMask
                                                                  backing:NSBackingStoreBuffered
                                                                    defer:YES];
@@ -60,11 +61,9 @@
             [maskWindow setBackgroundColor:[NSColor clearColor]];
             [maskWindow setLevel:NSFloatingWindowLevel];
             [maskWindow setFrame:cocoaScreenFrame display:YES];
-            [maskWindows addObject:maskWindow];
 
-            MaskView *maskView = [[MaskView alloc] initWithFrame:cocoaScreenFrame];
+            maskView = [[MaskView alloc] initWithFrame:cocoaScreenFrame];
             [maskWindow setContentView:maskView];
-            [maskViews addObject:maskView];
 
             [maskView setShowHole:YES];
             [maskView setHolePoint:[self mousePointInScreen:screen]];
@@ -78,13 +77,11 @@
 }
 
 - (void)hideMask{
-    for (NSWindow *maskWindow in maskWindows) {
-        [maskWindow setAlphaValue:1.0];
-        [[NSAnimationContext currentContext] setDuration:0.5];
-        [[maskWindow animator] setAlphaValue:0.0];
-    }
-    maskWindows = nil;
-    maskViews = nil;
+    [maskWindow setAlphaValue:1.0];
+    [[NSAnimationContext currentContext] setDuration:0.5];
+    [[maskWindow animator] setAlphaValue:0.0];
+    maskWindow = nil;
+    maskView = nil;
     isMasked = NO;
 }
 
