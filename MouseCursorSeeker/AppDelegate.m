@@ -32,6 +32,13 @@
                 [self setMask];
             }
         }
+
+        if( [event modifierFlags] == 256 ){
+            if( isMasked == YES ){
+                [self hideMask];
+            }
+        }
+
         if(( [event type] == NSKeyDown ) && ([event keyCode] == 53 ) ){  // [ESC] key pressed
             [self hideMask];
         }
