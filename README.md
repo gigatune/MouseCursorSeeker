@@ -1,6 +1,15 @@
 # MouseCursorSeeker
 A mouseCursor seeker (finder) for MacOS X
 
+バイナリファイルをGitHubリリースで公開しました。
+https://github.com/gigatune/MouseCursorSeeker/releases/tag/1
+MouseCursorSeeker_v1.zip をダウンロード&解凍すると、ビルド環境がなくても実行できます。
+
+MousuCursorSeeker.app file is here.
+https://github.com/gigatune/MouseCursorSeeker/releases/tag/1
+download MouseCursorSeeker_v1.zip and expand, you can try MouseCursorSeeker.app.
+
+
 ----
 
 マウスカーソルの周囲を除いて、画面全体をマスクすることで、マウスカーソルを見つけるユーティリティです。
