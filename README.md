@@ -1,5 +1,5 @@
 # MouseCursorSeeker
-this Utility highlight the MouseCursor. for MacOS X
+A mouseCursor seeker (finder) for MacOS X
 
 ----
 
@@ -11,9 +11,10 @@ this Utility highlight the MouseCursor. for MacOS X
  - ディスプレイ4枚(MacBookPro Retina + 外付け3枚)
 
 ----
-make the mask on the screen, and it help you to search mouse cursor.
+The MouseCursorSeeker makes your screen darken except around of the mouse cursor by shortcut key.
+This spotlight makes it easier to find the cursor particularly on multiple wide screens.
 
-develop environment
+developing environment
  - MacOS 10.9.5
  - XCode 5.0.2
  - 4 screens (MacBookPro Retina + extra display 3)
