@@ -25,7 +25,8 @@
     // Insert code here to initialize your application
 
     [NSEvent addGlobalMonitorForEventsMatchingMask:NSFlagsChangedMask|NSKeyDownMask handler:^(NSEvent *event){
-        if( [event modifierFlags] == 1573168 ){         // [command] + [Ctrl] keys pressed
+
+        if(( [event modifierFlags] & NSCommandKeyMask ) && ( [event modifierFlags] & NSControlKeyMask ) ){
             if( isMasked == YES ){
                 [self hideMask];
             }else{
@@ -33,7 +34,7 @@
             }
         }
 
-        if( [event modifierFlags] == 256 ){
+        if( ! ([event modifierFlags] & NSCommandKeyMask ) ){
             if( isMasked == YES ){
                 [self hideMask];
             }
